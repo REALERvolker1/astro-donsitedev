@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: "Symbols NF";
-    src: url('public/symbols.ttf');
+    src: url('/symbols.ttf');
 }
 
 :root {
@@ -38,7 +38,6 @@ a {
 .icon {
     font-family: 'Symbols NF';
     font-size: var(--icon-size);
-    border: 1px solid red; /*debug, remove in prod*/
     width: var(--icon-size);
     height: var(--icon-size);
     text-align: center;

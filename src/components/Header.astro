@@ -40,8 +40,10 @@ import pages from "../data/pages.json"
         <label
             for="navbar-checkbox"
             class="navbar-link navbar-close"
-            >Close</label
         >
+            <span class="icon"></span>
+            Close
+        </label>
         {
             pages.map((page) => {
                 return (
@@ -58,6 +60,7 @@ import pages from "../data/pages.json"
         }
     </nav>
 </main>
+<div class="spacer"></div>
 
 <style>
     .header-main {
@@ -67,6 +70,8 @@ import pages from "../data/pages.json"
         --navbar-icon-radius: calc(var(--navbar-icon-height) / 2);
         --navbar-button-padding: calc(var(--navbar-icon-spacing) / 2);
         --navbar-z-index: 13;
+        --shadow-factor: 2px;
+        --shadow-color: hsla(0, 0%, 10%, 0.8);
 
         display: flex;
         position: fixed;
@@ -78,6 +83,9 @@ import pages from "../data/pages.json"
         flex-flow: row-reverse nowrap;
         user-select: none;
     }
+    .spacer {
+        height: 100px;
+    }
     #navbar-checkbox:checked ~ .navbar-button,
     #navbar-checkbox:checked ~ .navbar-body {
         --navbar-display: flex;
@@ -87,6 +95,7 @@ import pages from "../data/pages.json"
         font-family: var(--font);
         font-size: 2rem;
         font-weight: light;
+        align-self: center;
         color: var(--text-emphasize);
         display: inline-block;
         margin-left: auto;
@@ -112,6 +121,7 @@ import pages from "../data/pages.json"
     .navbar-background {
         display: block;
         position: absolute;
+        cursor: pointer;
         inset: 0 0 0 0;
     }
     .navbar-icon,
@@ -125,6 +135,9 @@ import pages from "../data/pages.json"
         border-radius: var(--navbar-icon-radius);
         width: var(--navbar-icon-width);
         height: var(--navbar-icon-height);
+        box-shadow: calc(var(--shadow-factor) / 2)
+            calc(var(--shadow-factor) / 2) calc(var(--shadow-factor) * 2)
+            var(--shadow-color);
     }
     .navbar-icon {
         top: calc(var(--navbar-icon-spacing) + var(--navbar-button-padding));
@@ -138,7 +151,7 @@ import pages from "../data/pages.json"
     }
 
     .navbar-body {
-        --navbar-display: flex; /* debug, change to `none` in prod */
+        --navbar-display: none; /* debug, change to `none` in prod */
         --navbar-padding: 2vw;
 
         --navbar-link-bg: var(--bg-overlay-dark);
@@ -148,6 +161,7 @@ import pages from "../data/pages.json"
         --navbar-link-height: 3rem;
         --navbar-link-width: 100%;
         --navbar-link-transform-length: 3px;
+        --navbar-link-icon-margin: calc(var(--navbar-link-height) - 2rem);
 
         display: var(--navbar-display);
         z-index: var(--navbar-z-index);
@@ -155,8 +169,8 @@ import pages from "../data/pages.json"
         flex-flow: column nowrap;
         padding: var(--navbar-padding);
         width: 50vw;
-        height: 100vh;
-
+        height: 98vh;
+        border-radius: var(--radius);
         background: var(--bg-overlay);
         backdrop-filter: blur(var(--blur));
     }
@@ -173,6 +187,8 @@ import pages from "../data/pages.json"
 
         background: var(--navbar-link-bg);
         outline: 1px solid var(--navbar-link-outline);
+        box-shadow: var(--shadow-factor) var(--shadow-factor)
+            calc(var(--shadow-factor) * 2) var(--shadow-color);
         color: var(--text);
         cursor: pointer;
         border-radius: var(--radius);
@@ -188,7 +204,8 @@ import pages from "../data/pages.json"
     }
 
     .navbar-link:hover {
-        transform: translate(var(--navbar-link-transform-length), 0px);
+        --shadow-factor: 4px;
+        transform: translate(0px, var(--navbar-link-transform-length));
         filter: brightness(1.5);
     }
 
@@ -196,5 +213,9 @@ import pages from "../data/pages.json"
         margin-bottom: calc(var(--navbar-padding) * 2);
         font-weight: bold;
         font-size: 1.1em;
+    }
+
+    .icon {
+        margin: var(--navbar-link-icon-margin);
     }
 </style>
