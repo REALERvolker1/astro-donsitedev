@@ -1,0 +1,45 @@
+@import url("./reset.css");
+
+@font-face {
+    font-family: "Symbols NF";
+    src: url('public/symbols.ttf');
+}
+
+:root {
+    --font: system-ui, -apple-system, BlinkMacSystemFont, Lato, Cantarell, 'Noto Sans', 'Segoe UI', Helvetica, sans-serif;
+    --blur: 8px;
+    --radius: 8px;
+
+    --bg: hsl(0, 0%, 20%);
+    --bg-overlay: hsla(0, 0%, 30%, 0.75);
+    --bg-overlay-dark: hsla(0, 0%, 20%, 0.75);
+
+    --text: hsla(0, 0%, 90%, 0.9);
+    --text-emphasize: hsl(0, 0%, 100%);
+
+    --accent: hsl(0, 50%, 40%);
+
+    --icon-size: 24px;
+}
+
+body {
+    height: 100vh;
+    background: var(--bg);
+}
+
+* {
+    font-family: var(--font);
+}
+
+a {
+    text-decoration: none;
+}
+
+.icon {
+    font-family: 'Symbols NF';
+    font-size: var(--icon-size);
+    border: 1px solid red; /*debug, remove in prod*/
+    width: var(--icon-size);
+    height: var(--icon-size);
+    text-align: center;
+}

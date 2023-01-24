@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Home",
+        "id": "ho",
+        "icon": "",
+        "href": "/"
+    },
+    {
+        "name": "Apply",
+        "id": "ap",
+        "icon": "󰷉",
+        "href": "/apply/"
+    }
+]
