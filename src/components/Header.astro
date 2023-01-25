@@ -22,19 +22,15 @@ import pages from "../data/pages.json"
         type="checkbox"
         id="navbar-checkbox"
     />
+
     <div class="navbar-button">
+        <!-- TODO: Refactor this, too complicated -->
         <label
             for="navbar-checkbox"
             class="navbar-background"
         >
             <div class="navbar-icon"></div>
         </label>
-        <!--
-        <label
-            for="navbar-checkbox"
-            class="navbar-icon"
-        ></label>
-        -->
     </div>
     <nav class="navbar-body">
         <label
@@ -45,7 +41,22 @@ import pages from "../data/pages.json"
             Close
         </label>
         {
-            pages.map((page) => {
+            pages.main.map((page) => {
+                return (
+                    <a
+                        href={page.href}
+                        data-linked={page.id}
+                        class="navbar-link"
+                    >
+                        <span class="icon">{page.icon}</span>
+                        <span class="navbar-link-text">{page.name}</span>
+                    </a>
+                )
+            })
+        }
+        <div class="navbar-body-separator"></div>
+        {
+            pages.branches.map((page) => {
                 return (
                     <a
                         href={page.href}
@@ -61,6 +72,7 @@ import pages from "../data/pages.json"
     </nav>
 </main>
 <div class="spacer"></div>
+<!-- can probably use pseudo elem here -->
 
 <style>
     .header-main {
@@ -71,7 +83,6 @@ import pages from "../data/pages.json"
         --navbar-button-padding: calc(var(--navbar-icon-spacing) / 2);
         --navbar-z-index: 13;
         --shadow-factor: 2px;
-        --shadow-color: hsla(0, 0%, 10%, 0.8);
 
         display: flex;
         position: fixed;
@@ -137,7 +148,7 @@ import pages from "../data/pages.json"
         height: var(--navbar-icon-height);
         box-shadow: calc(var(--shadow-factor) / 2)
             calc(var(--shadow-factor) / 2) calc(var(--shadow-factor) * 2)
-            var(--shadow-color);
+            var(--elem-shadow-color);
     }
     .navbar-icon {
         top: calc(var(--navbar-icon-spacing) + var(--navbar-button-padding));
@@ -151,6 +162,7 @@ import pages from "../data/pages.json"
     }
 
     .navbar-body {
+        /* TODO: make responsive for PC */
         --navbar-display: none; /* debug, change to `none` in prod */
         --navbar-padding: 2vw;
 
@@ -188,7 +200,7 @@ import pages from "../data/pages.json"
         background: var(--navbar-link-bg);
         outline: 1px solid var(--navbar-link-outline);
         box-shadow: var(--shadow-factor) var(--shadow-factor)
-            calc(var(--shadow-factor) * 2) var(--shadow-color);
+            calc(var(--shadow-factor) * 2) var(--elem-shadow-color);
         color: var(--text);
         cursor: pointer;
         border-radius: var(--radius);

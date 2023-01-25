@@ -1,14 +1,42 @@
-[
-    {
-        "name": "Home",
-        "id": "ho",
-        "icon": "",
-        "href": "/"
-    },
-    {
-        "name": "Apply",
-        "id": "ap",
-        "icon": "󰷉",
-        "href": "/apply/"
-    }
-]
+{
+    "main": [
+        {
+            "name": "Home",
+            "id": "ho",
+            "icon": "",
+            "href": "/"
+        },
+        {
+            "name": "Gallery",
+            "id": "ga",
+            "icon": "",
+            "href": "/gallery/"
+        },
+        {
+            "name": "History",
+            "id": "hs",
+            "icon": "",
+            "href": "/history/"
+        }
+    ],
+    "branches": [
+        {
+            "name": "2b2t",
+            "id": "2b",
+            "icon": "",
+            "href": "/branches/2b2t/"
+        },
+        {
+            "name": "Stoneworks",
+            "id": "sw",
+            "icon": "",
+            "href": "/branches/stoneworks/"
+        },
+        {
+            "name": "9b9t",
+            "id": "9b",
+            "icon": "",
+            "href": "/branches/9b9t/"
+        }
+    ]
+}

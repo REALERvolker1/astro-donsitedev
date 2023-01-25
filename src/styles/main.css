@@ -17,22 +17,11 @@
     --text: hsla(0, 0%, 90%, 0.9);
     --text-emphasize: hsl(0, 0%, 100%);
 
+    --elem-shadow-color: hsla(0, 0%, 10%, 0.8);
+
     --accent: hsl(0, 50%, 40%);
 
     --icon-size: 24px;
-}
-
-body {
-    height: 100vh;
-    background: var(--bg);
-}
-
-* {
-    font-family: var(--font);
-}
-
-a {
-    text-decoration: none;
 }
 
 .icon {
