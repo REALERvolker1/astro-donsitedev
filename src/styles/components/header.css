@@ -14,16 +14,16 @@
 
     --navbar-display: none;
     --navbar-dimension-pad: 1vh;
-    --navbar-padding: 2vw;
-    --navbar-z-index: 13;
+    --navbar-width: 200px;
+    --navbar-padding: calc(var(--navbar-width) / 10);
     --navbar-heading-pad: calc(var(--header-main-height) + var(--navbar-dimension-pad));
     --navbar-height: calc(100vh - var(--navbar-heading-pad) - var(--navbar-dimension-pad));
-    --navbar-width: 50vw;
     --navbar-transform: calc(-10vw - var(--navbar-width));
     --navbar-transition: 250ms;
 
     --navbar-link-bg: var(--bg-overlay-dark);
     --navbar-link-outline: none;
+    --navbar-link-border: var(--navbar-link-bg);
     --navbar-link-current-bg: var(--bg-overlay-dark);
     --navbar-link-current-outline: var(--text);
     --navbar-link-height: 3rem;
@@ -45,11 +45,12 @@
     background: var(--bg-overlay);
     flex-flow: row-reverse nowrap;
     user-select: none;
+    z-index: var(--ui-index);
     box-shadow: 0px var(--shadow-factor) calc(var(--shadow-factor) * 2)
         var(--elem-shadow-color);
 }
 .spacer {
-    height: 100px;
+    height: var(--header-main-height);
 }
 
 .header {
@@ -120,7 +121,7 @@
     transition-duration: var(--navbar-transition);
     display: /*var(--navbar-display);*/ flex;
     position: fixed;
-    z-index: var(--navbar-z-index);
+    z-index: var(--ui-index);
     box-sizing: border-box;
     flex-flow: column nowrap;
     padding: var(--navbar-padding);
@@ -147,11 +148,12 @@
     margin-right: auto;
 
     background: var(--navbar-link-bg);
+    border-left: calc(var(--navbar-padding) / 4) solid var(--navbar-link-border);
     outline: 1px solid var(--navbar-link-outline);
     box-shadow: var(--navbar-link-shadow);
     color: var(--text);
     cursor: pointer;
-    border-radius: var(--radius);
+    border-radius: 0px var(--radius) var(--radius) 0px;
 
     margin-bottom: var(--navbar-padding);
 }
@@ -159,6 +161,7 @@
     margin-bottom: none;
 }
 .navbar-link-current {
+    --navbar-link-border: var(--navbar-link-current-outline);
     background: var(--navbar-link-current-bg);
     outline: 1px solid var(--navbar-link-current-outline);
 }

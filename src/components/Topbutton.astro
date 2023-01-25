@@ -1,0 +1,43 @@
+<script>
+    const button = document.querySelector(".top-return")
+    button?.addEventListener("click", () => {
+        window.scrollTo(0, 0)
+    })
+    /*
+    document.addEventListener("scroll", (ev) => {
+        console.log(window.scrollY)
+        if
+    })
+    */
+</script>
+
+<button class="button top-return">
+    <span class="icon"></span>
+</button>
+
+<style>
+    :root {
+        --topbutton-display: flex;
+        --topbutton-font: 24px;
+        --topbutton-size: calc(var(--icon-size) * 2);
+        --topbutton-margin: var(--icon-size);
+        --topbutton-top: calc(
+            100vh - var(--topbutton-margin) - var(--topbutton-size)
+        );
+        --topbutton-right: calc(
+            100vw - var(--topbutton-margin) - var(--topbutton-size)
+        );
+    }
+    .top-return {
+        display: var(--topbutton-display);
+        justify-content: center;
+        align-items: center;
+        padding: none;
+        position: sticky;
+        z-index: var(--ui-index);
+        width: var(--topbutton-size);
+        height: var(--topbutton-size);
+        left: var(--topbutton-right);
+        top: var(--topbutton-top);
+    }
+</style>

@@ -48,15 +48,16 @@ table {
 }
 
 /* vlk additions */
-body {
-    height: 100vh;
-    background: var(--bg);
-}
 
 * {
     font-family: var(--font);
 }
 
 a {
+    color: inherit;
     text-decoration: none;
+}
+
+button {
+    cursor: pointer;
 }
