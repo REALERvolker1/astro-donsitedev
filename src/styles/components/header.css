@@ -3,12 +3,16 @@
     --navbar-icon-spacing: calc(var(--navbar-icon-width) / 3);
     --navbar-icon-height: calc(var(--navbar-icon-spacing) / 2);
     --navbar-icon-radius: calc(var(--navbar-icon-spacing) / 4);
+    --navbar-icon-bg: var(--text);
+    --navbar-icon-display: block;
     --navbar-button-padding: var(--navbar-icon-height);
-    --navbar-z-index: 13;
+
     --shadow-factor: 2px;
+    --shadow-factor-hover: calc(var(--shadow-factor) * 2);
 
     --navbar-display: none;
     --navbar-padding: 2vw;
+    --navbar-z-index: 13;
 
     --navbar-link-bg: var(--bg-overlay-dark);
     --navbar-link-outline: none;
@@ -52,10 +56,7 @@
 }
 
 .navbar-button {
-    --navbar-bg: var(--text);
-    --navbar-checkbox-display: block;
-
-    display: var(--navbar-checkbox-display);
+    display: var(--navbar-icon-display);
     position: relative;
     padding: var(--navbar-button-padding);
     background: transparent;
@@ -63,7 +64,7 @@
     height: var(--navbar-icon-width);
 }
 .navbar-button:hover {
-    --navbar-bg: var(--text-emphasize);
+    --navbar-icon-bg: var(--text-emphasize);
 }
 .navbar-background {
     display: block;
@@ -78,7 +79,7 @@
     display: block;
     position: absolute;
 
-    background-color: var(--navbar-bg);
+    background-color: var(--navbar-icon-bg);
     border-radius: var(--navbar-icon-radius);
     width: var(--navbar-icon-width);
     height: var(--navbar-icon-height);
@@ -100,7 +101,7 @@
 #navbar-checkbox:checked ~ .navbar-button,
 #navbar-checkbox:checked ~ .navbar-body {
     --navbar-display: flex;
-    --navbar-checkbox-display: none;
+    --navbar-icon-display: none;
 }
 
 .navbar-body {
@@ -145,8 +146,7 @@
 }
 
 .navbar-link:hover {
-    --shadow-factor: 4px;
-    transform: translate(0px, var(--navbar-link-transform-length));
+    --shadow-factor: var(--shadow-factor-hover);
     filter: brightness(1.5);
 }
 

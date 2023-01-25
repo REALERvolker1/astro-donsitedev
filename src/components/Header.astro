@@ -46,7 +46,11 @@ import pages from "../data/pages.json"
                     <a
                         href={page.href}
                         data-linked={page.id}
-                        class="navbar-link"
+                        class={
+                            page.id == id
+                                ? "navbar-link navbar-link-current"
+                                : "navbar-link"
+                        }
                     >
                         <span class="icon">{page.icon}</span>
                         <span class="navbar-link-text">{page.name}</span>
