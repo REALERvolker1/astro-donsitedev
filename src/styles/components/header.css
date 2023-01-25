@@ -1,8 +1,10 @@
 :root {
+    --header-main-height: calc(var(--navbar-icon-width) * 1.4);
     --navbar-icon-width: 45px;
     --navbar-icon-spacing: calc(var(--navbar-icon-width) / 3);
     --navbar-icon-height: calc(var(--navbar-icon-spacing) / 2);
     --navbar-icon-radius: calc(var(--navbar-icon-spacing) / 4);
+    --navbar-icon-full-dimensions: calc();
     --navbar-icon-bg: var(--text);
     --navbar-icon-display: block;
     --navbar-button-padding: var(--navbar-icon-height);
@@ -11,8 +13,14 @@
     --shadow-factor-hover: calc(var(--shadow-factor) * 2);
 
     --navbar-display: none;
+    --navbar-dimension-pad: 1vh;
     --navbar-padding: 2vw;
     --navbar-z-index: 13;
+    --navbar-heading-pad: calc(var(--header-main-height) + var(--navbar-dimension-pad));
+    --navbar-height: calc(100vh - var(--navbar-heading-pad) - var(--navbar-dimension-pad));
+    --navbar-width: 50vw;
+    --navbar-transform: calc(-10vw - var(--navbar-width));
+    --navbar-transition: 250ms;
 
     --navbar-link-bg: var(--bg-overlay-dark);
     --navbar-link-outline: none;
@@ -22,14 +30,17 @@
     --navbar-link-width: 100%;
     --navbar-link-transform-length: 3px;
     --navbar-link-icon-margin: calc(var(--navbar-link-height) - 2rem);
+    --navbar-link-shadow: var(--shadow-factor) var(--shadow-factor)
+    calc(var(--shadow-factor) * 2) var(--elem-shadow-color);
 }
 
 .header-main {
     display: flex;
     position: fixed;
-    inset: 0px 0px 99% 0px;
+    box-sizing: border-box;
+    inset: 0px 0px auto 0px;
     padding: 5px;
-    height: calc(var(--navbar-icon-width) * 1.25);
+    height: var(--header-main-height);
     backdrop-filter: blur(var(--blur));
     background: var(--bg-overlay);
     flex-flow: row-reverse nowrap;
@@ -101,18 +112,26 @@
 #navbar-checkbox:checked ~ .navbar-button,
 #navbar-checkbox:checked ~ .navbar-body {
     --navbar-display: flex;
-    --navbar-icon-display: none;
+    --navbar-transform: 0vw;
+    /* --navbar-icon-display: none; */
 }
 
 .navbar-body {
-    display: var(--navbar-display);
+    transition-duration: var(--navbar-transition);
+    display: /*var(--navbar-display);*/ flex;
+    position: fixed;
     z-index: var(--navbar-z-index);
     box-sizing: border-box;
     flex-flow: column nowrap;
     padding: var(--navbar-padding);
-    width: 50vw;
-    height: 98vh;
-    border-radius: var(--radius);
+    top: var(--navbar-heading-pad);
+    left: 0px;
+    /* Do not set bottom, the bottom is in parent elem */
+    height: var(--navbar-height);
+    width: var(--navbar-width);
+
+    transform: translate(var(--navbar-transform), 0px);
+    border-radius: 0px var(--radius) var(--radius) 0px;
     background: var(--bg-overlay);
     backdrop-filter: blur(var(--blur));
 }
@@ -129,8 +148,7 @@
 
     background: var(--navbar-link-bg);
     outline: 1px solid var(--navbar-link-outline);
-    box-shadow: var(--shadow-factor) var(--shadow-factor)
-        calc(var(--shadow-factor) * 2) var(--elem-shadow-color);
+    box-shadow: var(--navbar-link-shadow);
     color: var(--text);
     cursor: pointer;
     border-radius: var(--radius);

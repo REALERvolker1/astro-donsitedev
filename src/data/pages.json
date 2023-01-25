@@ -21,19 +21,19 @@
     ],
     "branches": [
         {
-            "name": "2b2t",
+            "name": "2",
             "id": "2b",
             "icon": "",
             "href": "/branches/2b2t/"
         },
         {
-            "name": "Stoneworks",
+            "name": "s",
             "id": "sw",
             "icon": "",
             "href": "/branches/stoneworks/"
         },
         {
-            "name": "9b9t",
+            "name": "9",
             "id": "9b",
             "icon": "",
             "href": "/branches/9b9t/"
