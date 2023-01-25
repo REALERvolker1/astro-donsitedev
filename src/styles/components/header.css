@@ -1,0 +1,161 @@
+:root {
+    --navbar-icon-width: 45px;
+    --navbar-icon-spacing: calc(var(--navbar-icon-width) / 3);
+    --navbar-icon-height: calc(var(--navbar-icon-spacing) / 2);
+    --navbar-icon-radius: calc(var(--navbar-icon-spacing) / 4);
+    --navbar-button-padding: var(--navbar-icon-height);
+    --navbar-z-index: 13;
+    --shadow-factor: 2px;
+
+    --navbar-display: none;
+    --navbar-padding: 2vw;
+
+    --navbar-link-bg: var(--bg-overlay-dark);
+    --navbar-link-outline: none;
+    --navbar-link-current-bg: var(--bg-overlay-dark);
+    --navbar-link-current-outline: var(--text);
+    --navbar-link-height: 3rem;
+    --navbar-link-width: 100%;
+    --navbar-link-transform-length: 3px;
+    --navbar-link-icon-margin: calc(var(--navbar-link-height) - 2rem);
+}
+
+.header-main {
+    display: flex;
+    position: fixed;
+    inset: 0px 0px 99% 0px;
+    padding: 5px;
+    height: calc(var(--navbar-icon-width) * 1.25);
+    backdrop-filter: blur(var(--blur));
+    background: var(--bg-overlay);
+    flex-flow: row-reverse nowrap;
+    user-select: none;
+    box-shadow: 0px var(--shadow-factor) calc(var(--shadow-factor) * 2)
+        var(--elem-shadow-color);
+}
+.spacer {
+    height: 100px;
+}
+
+.header {
+    font-family: var(--font);
+    font-size: 2rem;
+    font-weight: light;
+    align-self: center;
+    color: var(--text-emphasize);
+    display: inline-block;
+    margin-left: auto;
+}
+
+#navbar-checkbox {
+    display: none;
+}
+
+.navbar-button {
+    --navbar-bg: var(--text);
+    --navbar-checkbox-display: block;
+
+    display: var(--navbar-checkbox-display);
+    position: relative;
+    padding: var(--navbar-button-padding);
+    background: transparent;
+    width: var(--navbar-icon-width);
+    height: var(--navbar-icon-width);
+}
+.navbar-button:hover {
+    --navbar-bg: var(--text-emphasize);
+}
+.navbar-background {
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    inset: 0 0 0 0;
+}
+.navbar-icon,
+.navbar-icon::before,
+.navbar-icon::after {
+    content: "";
+    display: block;
+    position: absolute;
+
+    background-color: var(--navbar-bg);
+    border-radius: var(--navbar-icon-radius);
+    width: var(--navbar-icon-width);
+    height: var(--navbar-icon-height);
+    box-shadow: calc(var(--shadow-factor) / 2)
+        calc(var(--shadow-factor) / 2) calc(var(--shadow-factor) * 2)
+        var(--elem-shadow-color);
+}
+.navbar-icon {
+    top: calc(var(--navbar-icon-spacing) + var(--navbar-button-padding));
+    left: var(--navbar-button-padding);
+}
+.navbar-icon::before {
+    top: var(--navbar-icon-spacing);
+}
+.navbar-icon::after {
+    bottom: var(--navbar-icon-spacing);
+}
+
+#navbar-checkbox:checked ~ .navbar-button,
+#navbar-checkbox:checked ~ .navbar-body {
+    --navbar-display: flex;
+    --navbar-checkbox-display: none;
+}
+
+.navbar-body {
+    display: var(--navbar-display);
+    z-index: var(--navbar-z-index);
+    box-sizing: border-box;
+    flex-flow: column nowrap;
+    padding: var(--navbar-padding);
+    width: 50vw;
+    height: 98vh;
+    border-radius: var(--radius);
+    background: var(--bg-overlay);
+    backdrop-filter: blur(var(--blur));
+}
+.navbar-link {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: left;
+    box-sizing: border-box;
+    width: var(--navbar-link-width);
+    height: var(--navbar-link-height);
+    margin-left: auto;
+    margin-right: auto;
+
+    background: var(--navbar-link-bg);
+    outline: 1px solid var(--navbar-link-outline);
+    box-shadow: var(--shadow-factor) var(--shadow-factor)
+        calc(var(--shadow-factor) * 2) var(--elem-shadow-color);
+    color: var(--text);
+    cursor: pointer;
+    border-radius: var(--radius);
+
+    margin-bottom: var(--navbar-padding);
+}
+.navbar-link:last-child {
+    margin-bottom: none;
+}
+.navbar-link-current {
+    background: var(--navbar-link-current-bg);
+    outline: 1px solid var(--navbar-link-current-outline);
+}
+
+.navbar-link:hover {
+    --shadow-factor: 4px;
+    transform: translate(0px, var(--navbar-link-transform-length));
+    filter: brightness(1.5);
+}
+
+.navbar-close {
+    margin-bottom: calc(var(--navbar-padding) * 2);
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.icon {
+    margin: var(--navbar-link-icon-margin);
+}
