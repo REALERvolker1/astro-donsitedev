@@ -1,5 +1,6 @@
 ---
 import Header from "../components/Header.astro"
+import Topbutton from "../components/Topbutton.astro"
 
 export interface Props {
     title: string
@@ -30,10 +31,12 @@ const { title, id } = Astro.props
     </head>
     <body>
         <Header
-            title="Home"
-            id="ho"
+            title={title}
+            id={id}
         />
         <slot />
+        <!-- TODO: Make Topbutton usablecreate-tauri-app@2.7.8 -->
+        <Topbutton />
     </body>
 </html>
 <style is:global>
