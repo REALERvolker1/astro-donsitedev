@@ -7,36 +7,28 @@
             "href": "/"
         },
         {
-            "name": "Gallery",
-            "id": "ga",
-            "icon": "",
-            "href": "/gallery/"
-        },
-        {
             "name": "History",
             "id": "hs",
             "icon": "",
             "href": "/history/"
-        }
-    ],
-    "branches": [
+        },
         {
             "name": "2",
             "id": "2b",
             "icon": "",
-            "href": "/branches/2b2t/"
+            "href": "/2b2t/"
         },
         {
             "name": "s",
             "id": "sw",
             "icon": "",
-            "href": "/branches/stoneworks/"
+            "href": "/stoneworks/"
         },
         {
             "name": "9",
             "id": "9b",
             "icon": "",
-            "href": "/branches/9b9t/"
+            "href": "/9b9t/"
         }
     ]
 }

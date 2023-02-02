@@ -60,21 +60,6 @@ import pages from "../data/pages.json"
                 )
             })
         }
-        <div class="navbar-body-separator"></div>
-        {
-            pages.branches.map((page) => {
-                return (
-                    <a
-                        href={page.href}
-                        data-linked={page.id}
-                        class="navbar-link"
-                    >
-                        <span class="icon">{page.icon}</span>
-                        <span class="navbar-link-text">{page.name}</span>
-                    </a>
-                )
-            })
-        }
     </nav>
 </main>
 <div class="spacer"></div>
