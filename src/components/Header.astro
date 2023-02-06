@@ -60,6 +60,19 @@ import pages from "../data/pages.json"
                 )
             })
         }
+        {
+            pages.social.map((link) => {
+                return (
+                    <a
+                        href={link.href}
+                        class="navbar-link navbar-social"
+                    >
+                        <span class="icon">{link.icon}</span>
+                        <span class="navbar-link-text">{link.name}</span>
+                    </a>
+                )
+            })
+        }
     </nav>
 </main>
 <div class="spacer"></div>

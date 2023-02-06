@@ -3,32 +3,43 @@
         {
             "name": "Home",
             "id": "ho",
-            "icon": "",
+            "icon": "󰋜",
             "href": "/"
-        },
-        {
-            "name": "History",
-            "id": "hs",
-            "icon": "",
-            "href": "/history/"
         },
         {
             "name": "2",
             "id": "2b",
-            "icon": "",
+            "icon": "󰁰",
             "href": "/2b2t/"
         },
         {
             "name": "s",
             "id": "sw",
-            "icon": "",
+            "icon": "󰄚",
             "href": "/stoneworks/"
         },
         {
             "name": "9",
             "id": "9b",
-            "icon": "",
+            "icon": "󰈸",
             "href": "/9b9t/"
+        }
+    ],
+    "social": [
+        {
+            "name": "Youtube",
+            "icon": "󰗃",
+            "href": "https://www.youtube.com/c/DonFuer"
+        },
+        {
+            "name": "2b2t Wiki",
+            "icon": "󰂻",
+            "href": "https://2b2t.miraheze.org/wiki/DonFuer"
+        },
+        {
+            "name": "Discord",
+            "icon": "󰙯",
+            "href": "https://discord.gg/nzPCyRs"
         }
     ]
 }
